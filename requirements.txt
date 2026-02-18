@@ -1,0 +1,7 @@
+ollama
+langfuse
+deepeval
+pytest
+tenacity
+pydantic
+python-dotenv
