@@ -1,9 +1,8 @@
 Agent Eval Lab
 
-A sandbox project for building and evaluating a multi-step reasoning agent with tools, using:
+A project for building and evaluating a multi-step reasoning agent with tools, using:
 Langfuse → Agent tracing & observability
 DeepEval → Behavioral & regression evaluation
-This project is designed as a serious evaluation lab — not a toy example.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 🎯 Purpose
