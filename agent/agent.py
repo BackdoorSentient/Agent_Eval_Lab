@@ -1,5 +1,6 @@
 from agent.planner import plan
 from tracing.langfuse_config import get_langfuse_trace
+from agent.executor import execute_tool
 
 class Agent:
     def __init__(self):
@@ -12,5 +13,26 @@ class Agent:
         steps=[]
 
         while True:
-            plan(question,)
-        return 
+            plan_output=plan(question,scrathpad)
+
+            if plan_output["action"]=="final":
+                trace.update(output=plan_output["final_answer"])
+                trace.end()
+                return plan_output["final_answer"]
+            
+            if plan_output["action"]=="tool":
+                tool_name=plan_output["tool_name"]
+                tool_input=plan_output["tool_input"]
+
+                span=trace.span(
+                    name=tool_name,
+                    input=tool_input
+                )
+
+                result=execute_tool(tool_name,tool_input)
+
+                span.append({
+                    "tool":tool_name,
+                    "input":tool_input,
+                    "output":result
+                })
