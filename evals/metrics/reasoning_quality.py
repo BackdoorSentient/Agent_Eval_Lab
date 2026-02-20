@@ -4,7 +4,7 @@ from deepeval.models import OllamaModel
 def reasoning_metric():
     model=OllamaModel(model="llama3")
 
-    GEval(
+    return GEval(
         name="Reasoning Quality",
         criteria="""
         Was the reasoning logical?
