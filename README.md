@@ -197,3 +197,33 @@ python run_evals.py
 pytest
 
 -----------------------------------------------------------------------------------------------------------------------------------------
+
+Tests fail if:
+-Task success decreases
+-Tool behavior changes
+-Reasoning quality degrades
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🧠 Why This Project Is Valuable
+
+This lab demonstrates understanding of:
+
+-Agent orchestration
+-Tool-augmented reasoning
+-LLM-as-judge evaluation
+-Observability-driven debugging
+-Regression-safe AI systems
+
+It reflects production-level agent evaluation design.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🔮 Future Improvements
+
+-Latency & performance metrics
+-Hallucination detection
+-Trajectory scoring benchmarks
+-Multi-agent evaluation
+-CI/CD integration (GitHub Actions)
+-Experiment tracking layer
+
+-----------------------------------------------------------------------------------------------------------------------------------------
