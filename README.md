@@ -1,5 +1,10 @@
 # 🧠 Agent Eval Lab
-Author-Aniket Waichal
+
+<p align="center">
+  <b>Author:</b> Aniket Waichal<br>
+  <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
+  Built with Ollama, Langfuse, and DeepEval — Fully Local & Free
+</p>
 
 <p align="center">
   <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
@@ -20,7 +25,7 @@ Author-Aniket Waichal
 
 ## 🚀 Overview
 
-**Agent Eval Lab** is a structured sandbox project designed to simulate real-world evaluation of multi-step reasoning agents.
+**Agent Eval Lab** Agent Eval Lab is a fully local framework for evaluating multi-step, tool-using LLM agents. It tracks execution traces, audits tool behavior, scores reasoning quality, and prevents regressions using automated tests.
 
 It demonstrates how to:
 
@@ -32,6 +37,25 @@ It demonstrates how to:
 - Prevent regressions via automated testing
 
 This project mirrors production-style agent evaluation workflows used in modern AI systems.
+
+---
+🧠 Why This Project Is Valuable
+
+This lab demonstrates understanding of:
+
+- Agent orchestration
+- Tool-augmented reasoning
+- LLM-as-judge evaluation
+- Observability-driven debugging
+- Regression-safe AI systems
+
+It reflects production-level agent evaluation design.
+
+---
+## 👥 Who Is This For?
+- ML engineers building tool-using agents
+- Researchers studying LLM reasoning
+- Developers learning evaluation workflows
 
 ---
 
@@ -60,7 +84,7 @@ This project mirrors production-style agent evaluation workflows used in modern 
                 │     Final Answer        │
                 └────────────────────────┘
 ```
------------------------------------------------------------------------------------------------------------------------------------------
+---
 🔎 Observability Layer (Langfuse)
 
 Each agent run is traced using self-hosted Langfuse.
@@ -74,12 +98,12 @@ We capture:
 - Execution spans
 - Final outputs
 
+---
 Langfuse runs locally via Docker:
 ```bash
 http://localhost:3000
 ```
-
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 📊 Evaluation Framework (DeepEval + Ollama)
 
@@ -88,7 +112,7 @@ OllamaModel(model="llama3")
 
 No OpenAI. No paid APIs. Fully offline.
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 🏗 Implemented Metrics
 1️⃣ Task Success
 
@@ -110,7 +134,7 @@ Did the agent use unnecessary tools?
 
 LLM-as-judge evaluation of reasoning coherence and logical planning.
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 📂 Project Structure
 ```text
 agent-eval-lab/
@@ -127,11 +151,11 @@ agent-eval-lab/
 ├── evals/
 │   ├── dataset.py
 │   ├── metrics/
-│   │   ├── tool_usage.py
-│   │   ├── tool_argument_accuracy.py
-│   │   ├── reasoning_quality.py
-│   │   └── task_success.py
-│   └── run_evals.py
+│       ├── tool_usage.py
+│       ├── tool_argument_accuracy.py
+│       ├── reasoning_quality.py
+│       └── task_success.py
+│   
 │
 ├── tests/
 │   └── test_regression.py
@@ -140,8 +164,9 @@ agent-eval-lab/
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
+└── run_evals.py
 ```
------------------------------------------------------------------------------------------------------------------------------------------
+---
 🎯 Evaluation Philosophy
 
 Traditional evaluation checks only final outputs.
@@ -156,7 +181,7 @@ This lab evaluates:
 
 This shifts evaluation from output-only validation to trajectory-aware validation.
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 🚀 Setup Guide
 1️⃣ Install Dependencies
 
@@ -190,35 +215,22 @@ LANGFUSE_SECRET_KEY=your_local_secret_key
 LANGFUSE_HOST=http://localhost:3000
 ```
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 📈 Run Evaluations
 python run_evals.py
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 🧪 Run Regression Tests
 pytest
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 Tests fail if:
 - Task success decreases
 - Tool behavior changes
 - Reasoning quality degrades
 
------------------------------------------------------------------------------------------------------------------------------------------
-🧠 Why This Project Is Valuable
-
-This lab demonstrates understanding of:
-
-- Agent orchestration
-- Tool-augmented reasoning
-- LLM-as-judge evaluation
-- Observability-driven debugging
-- Regression-safe AI systems
-
-It reflects production-level agent evaluation design.
-
------------------------------------------------------------------------------------------------------------------------------------------
+---
 🔮 Future Improvements
 
 - Latency & performance metrics
@@ -228,4 +240,4 @@ It reflects production-level agent evaluation design.
 - CI/CD integration (GitHub Actions)
 - Experiment tracking layer
 
------------------------------------------------------------------------------------------------------------------------------------------
+---
