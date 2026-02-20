@@ -1,3 +1,19 @@
+<p align="center">
+  <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
+  Built with Ollama, Langfuse, and DeepEval — Fully Local & Free
+</p>
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/LLM-Ollama%20%7C%20Llama3-blue" />
+  <img src="https://img.shields.io/badge/Tracing-Langfuse-orange" />
+  <img src="https://img.shields.io/badge/Evaluation-DeepEval-green" />
+  <img src="https://img.shields.io/badge/Testing-Pytest-yellow" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
+</p>
+
+
 Agent Eval Lab
 
 A project for building and evaluating a multi-step reasoning agent with tools, using:
