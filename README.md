@@ -1,5 +1,10 @@
 # 🧠 Agent Eval Lab
-Author-Aniket Waichal
+
+<p align="center">
+  <b>Author:</b> Aniket Waichal<br>
+  <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
+  Built with Ollama, Langfuse, and DeepEval — Fully Local & Free
+</p>
 
 <p align="center">
   <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
