@@ -58,7 +58,7 @@ This project mirrors production-style agent evaluation workflows used in modern 
                 ┌────────────────────────┐
                 │     Final Answer        │
                 └────────────────────────┘
-
+```
 -----------------------------------------------------------------------------------------------------------------------------------------
 🔎 Observability Layer (Langfuse)
 
@@ -187,3 +187,43 @@ LANGFUSE_PUBLIC_KEY=your_local_public_key
 LANGFUSE_SECRET_KEY=your_local_secret_key
 LANGFUSE_HOST=http://localhost:3000
 ```
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+📈 Run Evaluations
+python run_evals.py
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🧪 Run Regression Tests
+pytest
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Tests fail if:
+-Task success decreases
+-Tool behavior changes
+-Reasoning quality degrades
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🧠 Why This Project Is Valuable
+
+This lab demonstrates understanding of:
+
+-Agent orchestration
+-Tool-augmented reasoning
+-LLM-as-judge evaluation
+-Observability-driven debugging
+-Regression-safe AI systems
+
+It reflects production-level agent evaluation design.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🔮 Future Improvements
+
+-Latency & performance metrics
+-Hallucination detection
+-Trajectory scoring benchmarks
+-Multi-agent evaluation
+-CI/CD integration (GitHub Actions)
+-Experiment tracking layer
+
+-----------------------------------------------------------------------------------------------------------------------------------------
