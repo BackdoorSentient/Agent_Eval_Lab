@@ -111,6 +111,7 @@ LLM-as-judge evaluation of reasoning coherence and logical planning.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 📂 Project Structure
+```text
 agent-eval-lab/
 │
 ├── agent/
@@ -138,7 +139,7 @@ agent-eval-lab/
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
-
+```
 -----------------------------------------------------------------------------------------------------------------------------------------
 🎯 Evaluation Philosophy
 
