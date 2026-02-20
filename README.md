@@ -1,4 +1,5 @@
 # 🧠 Agent Eval Lab
+Author-Aniket Waichal
 
 <p align="center">
   <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
@@ -66,12 +67,12 @@ Each agent run is traced using self-hosted Langfuse.
 
 We capture:
 
--Planning steps
--Tool selection
--Tool arguments
--Tool outputs
--Execution spans
--Final outputs
+- Planning steps
+- Tool selection
+- Tool arguments
+- Tool outputs
+- Execution spans
+- Final outputs
 
 Langfuse runs locally via Docker:
 ```bash
@@ -111,6 +112,7 @@ LLM-as-judge evaluation of reasoning coherence and logical planning.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 📂 Project Structure
+```text
 agent-eval-lab/
 │
 ├── agent/
@@ -138,7 +140,7 @@ agent-eval-lab/
 ├── docker-compose.yml
 ├── requirements.txt
 └── README.md
-
+```
 -----------------------------------------------------------------------------------------------------------------------------------------
 🎯 Evaluation Philosophy
 
@@ -146,11 +148,11 @@ Traditional evaluation checks only final outputs.
 
 This lab evaluates:
 
--Behavioral correctness
--Tool decision quality
--Argument precision
--Multi-step reasoning integrity
--Regression stability
+- Behavioral correctness
+- Tool decision quality
+- Argument precision
+- Multi-step reasoning integrity
+- Regression stability
 
 This shifts evaluation from output-only validation to trajectory-aware validation.
 
@@ -199,31 +201,31 @@ pytest
 -----------------------------------------------------------------------------------------------------------------------------------------
 
 Tests fail if:
--Task success decreases
--Tool behavior changes
--Reasoning quality degrades
+- Task success decreases
+- Tool behavior changes
+- Reasoning quality degrades
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 🧠 Why This Project Is Valuable
 
 This lab demonstrates understanding of:
 
--Agent orchestration
--Tool-augmented reasoning
--LLM-as-judge evaluation
--Observability-driven debugging
--Regression-safe AI systems
+- Agent orchestration
+- Tool-augmented reasoning
+- LLM-as-judge evaluation
+- Observability-driven debugging
+- Regression-safe AI systems
 
 It reflects production-level agent evaluation design.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 🔮 Future Improvements
 
--Latency & performance metrics
--Hallucination detection
--Trajectory scoring benchmarks
--Multi-agent evaluation
--CI/CD integration (GitHub Actions)
--Experiment tracking layer
+- Latency & performance metrics
+- Hallucination detection
+- Trajectory scoring benchmarks
+- Multi-agent evaluation
+- CI/CD integration (GitHub Actions)
+- Experiment tracking layer
 
 -----------------------------------------------------------------------------------------------------------------------------------------
