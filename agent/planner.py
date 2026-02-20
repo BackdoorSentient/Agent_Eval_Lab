@@ -27,6 +27,7 @@ Format:
 def plan(user_input:str, scratchpad:str):
     response=ollama.chat(
         model=MODEL_NAME,
+        host="http://host.docker.internal:11434",
         messages=[
             {
                 "role":"system",

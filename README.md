@@ -1,3 +1,5 @@
+# 🧠 Agent Eval Lab
+
 <p align="center">
   <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
   Built with Ollama, Langfuse, and DeepEval — Fully Local & Free
@@ -13,116 +15,175 @@
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
 </p>
 
+---
 
-Agent Eval Lab
+## 🚀 Overview
 
-A project for building and evaluating a multi-step reasoning agent with tools, using:
-Langfuse → Agent tracing & observability
-DeepEval → Behavioral & regression evaluation
+**Agent Eval Lab** is a structured sandbox project designed to simulate real-world evaluation of multi-step reasoning agents.
 
-------------------------------------------------------------------------------------------------------------------------------------------------
-🎯 Purpose
+It demonstrates how to:
 
-This project demonstrates how to:
-Build a multi-step tool-using agent
-Trace full agent trajectories
-Evaluate agent behavior (not just final answers)
-Detect tool misuse
-Score reasoning quality
-Prevent regressions using CI
+- Build a tool-using reasoning agent
+- Trace full execution trajectories
+- Evaluate agent behavior (not just final answers)
+- Detect tool misuse and over-tooling
+- Score reasoning quality using LLM-as-judge
+- Prevent regressions via automated testing
 
--------------------------------------------------------------------------------------------------------------------------------------------------
-🧠 Agent Architecture
+This project mirrors production-style agent evaluation workflows used in modern AI systems.
 
-User Input
-   ↓
-Planner (LLM)
-   ↓
-Tool Call(s)
-   ↓
-Observation
-   ↓
-Planner
-   ↓
-Final Answer
+---
 
--------------------------------------------------------------------------------------------------------------------------------------------------
-Each step is logged using Langfuse.
-Evaluation is performed offline using DeepEval.
+# 🧠 System Architecture
 
--------------------------------------------------------------------------------------------------------------------------------------------------
+```text
+                ┌────────────────────────┐
+                │        User Input       │
+                └────────────┬───────────┘
+                             ↓
+                ┌────────────────────────┐
+                │      Planner (LLM)     │
+                │   Ollama - llama3      │
+                └────────────┬───────────┘
+                             ↓
+                ┌────────────────────────┐
+                │       Tool Calls        │
+                │  calculator, converter  │
+                └────────────┬───────────┘
+                             ↓
+                ┌────────────────────────┐
+                │       Observations      │
+                └────────────┬───────────┘
+                             ↓
+                ┌────────────────────────┐
+                │     Final Answer        │
+                └────────────────────────┘
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🔎 Observability Layer (Langfuse)
+
+Each agent run is traced using self-hosted Langfuse.
+
+We capture:
+
+-Planning steps
+-Tool selection
+-Tool arguments
+-Tool outputs
+-Execution spans
+-Final outputs
+
+Langfuse runs locally via Docker:
+```bash
+http://localhost:3000
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+📊 Evaluation Framework (DeepEval + Ollama)
+
+All evaluation is performed locally using:
+OllamaModel(model="llama3")
+
+No OpenAI. No paid APIs. Fully offline.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+🏗 Implemented Metrics
+1️⃣ Task Success
+
+Final answer correctness.
+
+2️⃣ Tool Usage Accuracy
+
+Did the agent choose the correct tool?
+
+3️⃣ Tool Argument Accuracy
+
+Were correct arguments passed?
+
+4️⃣ Over-Tooling Detection
+
+Did the agent use unnecessary tools?
+
+5️⃣ Reasoning Quality (GEval)
+
+LLM-as-judge evaluation of reasoning coherence and logical planning.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
 📂 Project Structure
-
 agent-eval-lab/
 │
 ├── agent/
-│   ├── planner.py              # LLM planning logic
-│   ├── tools.py                # Tool implementations
-│   ├── executor.py             # Tool execution handler
-│   └── agent.py                # Main agent loop
+│   ├── planner.py
+│   ├── tools.py
+│   ├── executor.py
+│   └── agent.py
 │
 ├── tracing/
-│   └── langfuse_config.py      # Langfuse setup
+│   └── langfuse_config.py
 │
 ├── evals/
-│   ├── dataset.py              # Evaluation task dataset
+│   ├── dataset.py
 │   ├── metrics/
 │   │   ├── tool_usage.py
 │   │   ├── tool_argument_accuracy.py
 │   │   ├── reasoning_quality.py
 │   │   └── task_success.py
-│   └── run_evals.py            # Batch evaluation runner
+│   └── run_evals.py
 │
 ├── tests/
-│   └── test_regression.py      # CI regression test
+│   └── test_regression.py
 │
+├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
 └── README.md
 
--------------------------------------------------------------------------------------------------------------------------------------------------
-🏗 Evaluation Design
+-----------------------------------------------------------------------------------------------------------------------------------------
+🎯 Evaluation Philosophy
 
-We evaluate:
+Traditional evaluation checks only final outputs.
 
-1️⃣ Task Success
-Final answer correctness
+This lab evaluates:
 
-2️⃣ Tool Usage Accuracy
-Did the agent choose the correct tools?
+-Behavioral correctness
+-Tool decision quality
+-Argument precision
+-Multi-step reasoning integrity
+-Regression stability
 
-3️⃣ Tool Argument Accuracy
-Were correct arguments passed?
+This shifts evaluation from output-only validation to trajectory-aware validation.
 
-4️⃣ Over-Tooling
-Did the agent use unnecessary tools?
+-----------------------------------------------------------------------------------------------------------------------------------------
+🚀 Setup Guide
+1️⃣ Install Dependencies
 
-5️⃣ Reasoning Quality
-Evaluated using LLM-as-judge (GEval)
+```bash
+pip install -r requirements.txt
+```
 
--------------------------------------------------------------------------------------------------------------------------------------------------
-📊 Dataset Categories
+2️⃣ Start Ollama
+```bash
+ollama serve
+ollama pull llama3
+```
 
-The evaluation dataset includes:
-Single-step tool tasks
-Multi-step reasoning tasks
-No-tool tasks
-Ambiguous tasks
-Edge cases
+3️⃣ Start Langfuse (Free & Local)
+```bash
+docker compose up
+```
 
-This ensures meaningful evaluation coverage.
+Open:
+```bash
+http://localhost:3000
+```
+Create a project and copy the generated keys.
 
--------------------------------------------------------------------------------------------------------------------------------------------------
-🔎 Observability
+4️⃣ Configure Environment
 
-Langfuse logs:
-
-Planning steps
-Tool calls
-Tool arguments
-Tool outputs
-Final answers
-Latency & token usage
-
--------------------------------------------------------------------------------------------------------------------------------------------------
-📈 Evaluation Workflow
-
+Create .env:
+```bash
+LANGFUSE_PUBLIC_KEY=your_local_public_key
+LANGFUSE_SECRET_KEY=your_local_secret_key
+LANGFUSE_HOST=http://localhost:3000
+```
