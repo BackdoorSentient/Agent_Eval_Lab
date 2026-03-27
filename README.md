@@ -6,11 +6,6 @@
   Built with Ollama, Langfuse, and DeepEval — Fully Local & Free
 </p>
 
-<p align="center">
-  <b>A Production-Style Multi-Step Agent Evaluation Lab</b><br>
-  Built with Ollama, Langfuse, and DeepEval — Fully Local & Free
-</p>
-
 ---
 
 <p align="center">
